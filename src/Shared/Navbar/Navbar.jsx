@@ -20,7 +20,7 @@ const Navbar = () => {
         localStorage.setItem("theme", theme);
         const localTheme = localStorage.getItem("theme");
         document.querySelector("html").setAttribute("data-theme", localTheme)
-        // document.querySelector("#menubar").setAttribute("data-theme", localTheme)
+        // document.querySelector("#about-bg").setAttribute("data-theme", localTheme)
         // document.querySelector("#footer").setAttribute("data-theme", localTheme)
         document.querySelector("html").setAttribute("class", localTheme)
     }, [theme])
