@@ -4,7 +4,7 @@ import logo from '../../assets/logo.png'
 const Footer = () => {
     return (
         <footer>
-            <div className=" flex justify-center text-center ">
+            <div className=" md:flex justify-center text-center ">
                 <div className="bg-[#1F2937] space-y-2 flex flex-col items-center p-20 text-white w-full">
                     <img src={logo} className='w-24' alt="" />
                     <h3>CONTACT US</h3>
