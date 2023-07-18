@@ -30,14 +30,15 @@ const Navbar = () => {
         <li><Link className=" text-xl" to='/'>Home</Link></li>
         <li><Link className=" text-xl" to='/menu '>Our Menu</Link></li>
         <li><Link className=" text-xl" to='/shop '>Our Shop</Link></li>
+        <li><Link className=" text-xl" to='/contact '>Contact</Link></li>
     </>
 
 
 
     return (
         <div className="flex justify-center">
-            <div className="navbar   bg-rgba text-white fixed z-10  
-]">             <div className="navbar container">
+            <div className="navbar   bg-rgba text-white fixed z-10 ">
+                <div className="navbar container">
 
                     <div className="navbar-start">
                         <div className="dropdown">
