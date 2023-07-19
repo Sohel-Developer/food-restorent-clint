@@ -6,6 +6,12 @@ import OurShop from "../Pages/OurShop/OurShop";
 import Contact from "../Pages/Contact/Contact";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import Dashbord from "../Layout/Dashbord";
+import AddItem from "../Pages/Dashbord/Admin/AddItem";
+import ManageItems from "../Pages/Dashbord/Admin/ManageItems";
+import UpdateItem from "../Pages/Dashbord/Admin/UpdateItem";
+import AllUsers from "../Pages/Dashbord/Admin/AllUsers";
+import ManageBokings from "../Pages/Dashbord/Admin/ManageBokings";
 
 export const router = createBrowserRouter([
     {
@@ -29,6 +35,32 @@ export const router = createBrowserRouter([
                 element: <Contact />
             },
 
+        ]
+    },
+    {
+        path: '/dashbord',
+        element: <Dashbord />,
+        children: [
+            {
+                path: 'additem',
+                element: <AddItem />
+            },
+            {
+                path: 'manageitems',
+                element: <ManageItems />
+            },
+            {
+                path: 'updateitem',
+                element: <UpdateItem />
+            },
+            {
+                path: "allusers",
+                element: <AllUsers />
+            },
+            {
+                path: "bokings",
+                element: <ManageBokings />
+            }
         ]
     },
     {
