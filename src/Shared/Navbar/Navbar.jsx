@@ -31,6 +31,7 @@ const Navbar = () => {
         <li><Link className=" text-xl" to='/menu '>Our Menu</Link></li>
         <li><Link className=" text-xl" to='/shop '>Our Shop</Link></li>
         <li><Link className=" text-xl" to='/contact '>Contact</Link></li>
+        <li><Link className=" text-xl" to='/login '>Login</Link></li>
     </>
 
 
