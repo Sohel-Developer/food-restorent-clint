@@ -1,7 +1,12 @@
-import { FaExchangeAlt, FaHome, FaRegEnvelope, FaShoppingBag, FaSyncAlt, FaUsers, FaUtensils } from "react-icons/fa";
+import { FaCalendarAlt, FaExchangeAlt, FaHome, FaRegEnvelope, FaShoppingBag, FaShoppingCart, FaSyncAlt, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
+import { TbStarsFilled } from "react-icons/tb";
 import { Link, Outlet } from "react-router-dom";
 
 const Dashbord = () => {
+
+    const isAdmin = false;
+
+
     return (
         <div className="container">
             <div className="drawer lg:drawer-open">
@@ -18,12 +23,33 @@ const Dashbord = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-                        {/* Sidebar content here */}
-                        <Link className="text-xl font-semibold  " to="/dashbord/additem"><li><a> <FaUtensils /> Add Item</a></li></Link>
-                        <Link className="text-xl font-semibold  " to="/dashbord/manageitems"><li><a> <FaSyncAlt />  Manage Items</a></li></Link>
-                        <Link className="text-xl font-semibold  " to="/dashbord/updateitem"><li><a><FaExchangeAlt /> Update Items</a></li></Link>
-                        <Link className="text-xl font-semibold  " to="/dashbord/allusers"><li><a> <FaUsers />  All Users</a></li></Link>
-                        <Link className="text-xl font-semibold  " to="/dashbord/bokings"><li><a> <FaUsers />  Manage Bokings</a></li></Link>
+                        {/* Admin */}
+
+                        {
+                            isAdmin ? <>
+                                <Link className="text-xl font-semibold  " to="/dashbord/additem"><li><a> <FaUtensils /> Add Item</a></li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/manageitems"><li><a> <FaSyncAlt />  Manage Items</a></li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/updateitem"><li><a><FaExchangeAlt /> Update Items</a></li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/allusers"><li><a> <FaUsers />  All Users</a></li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/bookings"><li><a> <FaUsers />  Manage Bokings</a></li></Link>
+
+                            </> : <>
+
+                                {/* Users */}
+
+                                <Link className="text-xl font-semibold  " to="/dashbord/user"><li><a> <FaHome /> User Home</a></li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/reservation"><li><a> <FaCalendarAlt />  Reservation</a></li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/paymenthistory"><li><a> <FaWallet />  Payment History</a></li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/cart"><li><a> <FaShoppingCart />  My Cart</a></li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/review"><li><a> <TbStarsFilled /> Add Review</a></li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/booking"><li><a> <FaUsers />  My Bokings</a></li></Link>
+
+                            </>
+                        }
+
+
+
+
 
 
                         <div className="divider"></div>

@@ -12,6 +12,12 @@ import ManageItems from "../Pages/Dashbord/Admin/ManageItems";
 import UpdateItem from "../Pages/Dashbord/Admin/UpdateItem";
 import AllUsers from "../Pages/Dashbord/Admin/AllUsers";
 import ManageBokings from "../Pages/Dashbord/Admin/ManageBokings";
+import UserHome from "../Pages/Dashbord/Users/UserHome";
+import Reservation from "../Pages/Dashbord/Users/Reservation";
+import PaymentHistory from "../Pages/Dashbord/Users/PaymentHistory";
+import MyCart from "../Pages/Dashbord/Users/MyCart";
+import Review from "../Pages/Dashbord/Users/Review";
+import MyBokings from "../Pages/Dashbord/Users/MyBokings";
 
 export const router = createBrowserRouter([
     {
@@ -58,8 +64,34 @@ export const router = createBrowserRouter([
                 element: <AllUsers />
             },
             {
-                path: "bokings",
+                path: "bookings",
                 element: <ManageBokings />
+            },
+            /* Users Link */
+
+            {
+                path: 'user',
+                element: <UserHome />
+            },
+            {
+                path: 'reservation',
+                element: <Reservation />
+            },
+            {
+                path: 'paymenthistory',
+                element: <PaymentHistory />
+            },
+            {
+                path: 'cart',
+                element: <MyCart />
+            },
+            {
+                path: 'review',
+                element: <Review />
+            },
+            {
+                path: 'booking',
+                element: <MyBokings />
             }
         ]
     },
