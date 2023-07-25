@@ -29,7 +29,7 @@ const Features = () => {
                     <SwiperSlide>
                         <div className="relative flex justify-center ">
                             <img src={image1} alt="" className="rounded-lg" />
-                            <h2 className=" absolute text-white sm:text-3xl sm:bottom-5 bottom-2">SALADS</h2>
+                            <h2 className=" absolute text-white sm:text-3xl sm:bottom-5 bottom-2">saladS</h2>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
@@ -41,19 +41,19 @@ const Features = () => {
                     <SwiperSlide>
                         <div className="relative flex justify-center ">
                             <img src={image3} alt="" className="rounded-lg" />
-                            <h2 className=" absolute text-white sm:text-3xl sm:bottom-5 bottom-2">PIZZAS</h2>
+                            <h2 className=" absolute text-white sm:text-3xl sm:bottom-5 bottom-2">pizzaS</h2>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="relative flex justify-center ">
                             <img src={image4} alt="" className="rounded-lg" />
-                            <h2 className=" absolute text-white sm:text-3xl sm:bottom-5 bottom-2">DESSERTS</h2>
+                            <h2 className=" absolute text-white sm:text-3xl sm:bottom-5 bottom-2">dessertS</h2>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="relative flex justify-center ">
                             <img src={image5} alt="" className="rounded-lg" />
-                            <h2 className=" absolute text-white sm:text-3xl sm:bottom-5 bottom-2">SALADS</h2>
+                            <h2 className=" absolute text-white sm:text-3xl sm:bottom-5 bottom-2">saladS</h2>
                         </div>
                     </SwiperSlide>
                 </Swiper>

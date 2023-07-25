@@ -42,7 +42,7 @@ const ManageItems = () => {
                                         </div>
                                     </td>
                                     <td>
-                                        Salad
+                                        salad
                                     </td>
                                     <td>555TK</td>
                                     <th>

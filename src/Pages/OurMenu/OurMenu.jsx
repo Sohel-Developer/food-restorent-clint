@@ -2,7 +2,7 @@ import CategoryItem from "../../Component/CategoryItem/CategoryItem";
 import Cover from "../../Component/Cover/Cover";
 import SectionTitle from "../../Component/SectionTitle/SectionTitle";
 import useMenu from "../../Hooks/useMenu";
-// import menuCover from "../../assets/menu/banner3.jpg"
+import menuCover from "../../assets/menu/banner3.jpg"
 import dessertCover from "../../assets/menu/dessert-bg.jpeg"
 import pizzaCover from "../../assets/menu/pizza-bg.jpg"
 import saladCover from "../../assets/menu/salad-bg.jpg"
@@ -25,7 +25,7 @@ const OurMenu = () => {
     return (
         <div>
 
-            {/* <Cover image={menuCover} heading="OUR MENU" subHeading="Would you like to try a dish?" /> */}
+            <Cover image={menuCover} heading="OUR MENU" subHeading="Would you like to try a dish?" />
             {/* Offerd Section */}
             <section>
                 <div className="container">
@@ -33,32 +33,32 @@ const OurMenu = () => {
                     <CategoryItem data={offerd} />
                 </div>
             </section>
-            {/* Desserts Section */}
+            {/* desserts Section */}
 
-            <Cover image={dessertCover} heading="DESSERTS" subHeading="Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.s" />
+            <Cover image={dessertCover} heading="dessertS" subHeading="Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.s" />
             <section>
                 <div className="container">s
                     <CategoryItem data={dessert} />
                 </div>
             </section>
 
-            {/* Pizza Section */}
+            {/* pizza Section */}
 
-            <Cover image={pizzaCover} heading="PIZZA" subHeading="Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.s" />
+            <Cover image={pizzaCover} heading="pizza" subHeading="Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.s" />
             <section>
                 <div className="container">s
                     <CategoryItem data={dessert} />
                 </div>
             </section>
-            {/* Pizza Section */}
+            {/* pizza Section */}
 
-            <Cover image={saladCover} heading="Salad" subHeading="Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.s" />
+            <Cover image={saladCover} heading="salad" subHeading="Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.s" />
             <section>
                 <div className="container">s
                     <CategoryItem data={salad} />
                 </div>
             </section>
-            {/* Pizza Section */}
+            {/* pizza Section */}
 
             <Cover image={soupCover} heading="Soups" subHeading="Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.s" />
             <section>

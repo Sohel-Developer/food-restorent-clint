@@ -3,6 +3,10 @@ const FoodCard = ({ food }) => {
 
     const { name, price, recipe, image } = food;
 
+    const handleCartItem = (item) => {
+        console.log(item);
+    }
+
     return (
 
         <div className="card bg-base-100 shadow-xl">
@@ -13,7 +17,7 @@ const FoodCard = ({ food }) => {
                 <h2 className="text-2xl font-semibold w-full">{name}</h2>
                 <p>{recipe}</p>
                 <div className="card-actions ">
-                    <button className="btn btn-outline w-full mt-4  border-none hover:bg-black text-[#BB8506] border-b-4  bg-[#E8E8E8]">Buy Now</button>
+                    <button onClick={() => handleCartItem(food)} className="btn btn-outline w-full mt-4  border-none hover:bg-black text-[#BB8506] border-b-4  bg-[#E8E8E8]">Buy Now</button>
                 </div>
             </div>
         </div>

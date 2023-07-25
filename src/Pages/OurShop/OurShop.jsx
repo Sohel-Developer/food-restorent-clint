@@ -51,11 +51,11 @@ const OurShop = () => {
                 <section >
                     <Tabs>
                         <TabList className='flex justify-center uppercase text-2xl '>
-                            <Tab>Salad</Tab>
-                            <Tab>Pizza</Tab>
+                            <Tab>salad</Tab>
+                            <Tab>pizza</Tab>
                             <Tab>Soups</Tab>
-                            <Tab>Desserts</Tab>
-                            <Tab>Drinks</Tab>
+                            <Tab>desserts</Tab>
+                            <Tab>drinks</Tab>
                         </TabList>
                         <TabPanel>
                             <div className='grid md:grid-cols-3 gap-10 my-10'>

@@ -8,7 +8,7 @@ const useMenu = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch("menu.json")
+        fetch("http://localhost:5000/foods")
             .then(res => res.json())
             .then(data => {
                 console.log(data)

@@ -23,11 +23,11 @@ const AddItem = () => {
                             </label>
                             <select className="select select-bordered">
                                 <option disabled selected>Chose Category</option>
-                                <option>Salad</option>
-                                <option>Pizza</option>
+                                <option>salad</option>
+                                <option>pizza</option>
                                 <option>Soups</option>
-                                <option>Dessert</option>
-                                <option>Drinks</option>
+                                <option>dessert</option>
+                                <option>drinks</option>
                             </select>
                         </div>
                         <div className="form-control w-full">

@@ -36,7 +36,7 @@ const AllUsers = () => {
                                         name
                                     </td>
                                     <td>
-                                        Salad
+                                        salad
                                     </td>
                                     <td><button className="btn btn-ghost "><FaUsers className="text-xl" /></button></td>
                                     <th>
