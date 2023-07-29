@@ -23,4 +23,7 @@ section {
 
 #login {
     background-image: url("./assets/others/authentication.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }

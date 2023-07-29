@@ -1,7 +1,6 @@
 
 const MenuItem = ({ item }) => {
     const { name, price, recipe, image } = item;
-    console.log(item);
     return (
         <div className="flex items-center shadow-lg p-5 rounded-lg ">
             <div>

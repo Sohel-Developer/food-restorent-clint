@@ -14,22 +14,22 @@ const SignUp = () => {
 
 
     return (
-        <div id='login' >
+        <div id='login' className="h-screen" >
             <div className='container'>
-                <div className='px-20 py-40 flex justify-between'>
+                <div className='px-20 md:py-40 md:flex justify-between'>
                     <div>
                         <Link to="/"><p className='text-xl font-semibold flex items-center gap-2 cursor-pointer'> <FaArrowLeft /> Back To Home</p></Link>
                         <img src={loginImg} alt="" />
                     </div>
 
-                    <div className='w-1/2'>
-                        <form className=" space-y-10" onSubmit={handleSubmit(onSubmit)}>
+                    <div className='md:w-1/2'>
+                        <form className=" space-y-4 md:space-y-10" onSubmit={handleSubmit(onSubmit)}>
 
                             <input type="text" placeholder="Your Name" {...register("name", { required: true, maxLength: 80 })} className="input input-bordered w-full" />
                             <input type="email" className="input input-bordered w-full" placeholder="Email" {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
 
-                            <input type="text" className="input input-bordered w-full" placeholder="Reload Captcha" {...register("Mobile number", { required: true, minLength: 6, maxLength: 12 })} />
-                            <input type="text" className="input input-bordered w-full" placeholder="Type Captcha" {...register("Captcha", { required: true, minLength: 6, maxLength: 12 })} />
+                            <input type="text" className="input input-bordered w-full" placeholder="Reload Captcha" />
+                            <input type="text" className="input input-bordered w-full" placeholder="Type Captcha" {...register("Captcha")} />
 
                             <div className="flex  cursor-pointer bg-gray-700 py-4 px-12 rounded-lg justify-center items-center gap-2">
                                 <input className=" text-white font-semibold" type="submit" value="Login" /> <FaTelegramPlane className="text-white" />
