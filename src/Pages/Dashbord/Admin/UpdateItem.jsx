@@ -6,12 +6,12 @@ const UpdateItem = () => {
     return (
         <section>
             <div>
-                <SectionTitle paragraphTitle="Update Check" headingTitle="Update Item" />
+                <SectionTitle paragraphTitle="Right Information Please" headingTitle="Update Item" />
 
                 <form className="p-10 space-y-4 bg-gray-100 m-10 rounded-lg">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Recipe Name*</span>
+                            <span className="label-text">Recipe Name</span>
                         </label>
                         <input type="text" placeholder="Recipe Name" className="input input-bordered" />
 
@@ -19,9 +19,9 @@ const UpdateItem = () => {
                     <div className="flex w-full gap-10">
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text">Category*</span>
+                                <span className="label-text">Category</span>
                             </label>
-                            <select defaultValue className="select select-bordered">
+                            <select defaultValue="Chose Category" className="select select-bordered">
                                 <option disabled >Chose Category</option>
                                 <option>salad</option>
                                 <option>pizza</option>
@@ -32,9 +32,9 @@ const UpdateItem = () => {
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text">Price*</span>
+                                <span className="label-text">Price</span>
                             </label>
-                            <input type="text" placeholder="password" className="input input-bordered" />
+                            <input type="number" placeholder="Price" className="input input-bordered" />
 
                         </div>
 
@@ -42,9 +42,9 @@ const UpdateItem = () => {
 
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Price*</span>
+                            <span className="label-text">Recipe Details</span>
                         </label>
-                        <textarea className="textarea textarea-bordered w-full" placeholder="Your Message" >
+                        <textarea className="textarea textarea-bordered w-full" placeholder="Recipe Details" >
 
                         </textarea>
 
