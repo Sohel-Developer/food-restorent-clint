@@ -21,8 +21,8 @@ const AddItem = () => {
                             <label className="label">
                                 <span className="label-text">Category*</span>
                             </label>
-                            <select className="select select-bordered">
-                                <option disabled selected>Chose Category</option>
+                            <select defaultValue="Chose Category" className="select select-bordered">
+                                <option disabled >Chose Category</option>
                                 <option>salad</option>
                                 <option>pizza</option>
                                 <option>Soups</option>

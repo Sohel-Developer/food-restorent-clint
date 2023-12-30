@@ -21,8 +21,8 @@ const UpdateItem = () => {
                             <label className="label">
                                 <span className="label-text">Category*</span>
                             </label>
-                            <select className="select select-bordered">
-                                <option disabled selected>Chose Category</option>
+                            <select defaultValue className="select select-bordered">
+                                <option disabled >Chose Category</option>
                                 <option>salad</option>
                                 <option>pizza</option>
                                 <option>Soups</option>
@@ -50,11 +50,10 @@ const UpdateItem = () => {
 
                     </div>
                     <div className="flex flex-col items-start space-y-4">
-                        <input type="file" className="file-input w-full max-w-xs" />
 
-                        <span className="cursor-pointer py-4 px-8 bg-gray-500 rounded-lg flex items-center gap-2">
-                            <input type="submit" className=" text-white text-xl font-semibold " value="Update Item" />
-                            <FaUtensils className="text-white text-xl" />
+                        <span className="  bg-gray-500 rounded-lg flex items-center gap-2">
+                            <input type="submit" className=" py-4 pl-4  cursor-pointer text-white text-xl font-semibold " value="Update Recipe Details" />
+                            <FaUtensils className="text-white text-xl mr-4" />
                         </span>
                     </div>
 

@@ -24,6 +24,9 @@ const MyCart = () => {
 
     }
 
+
+    const totalPrice = cart.reduce((accumulator, currentValue) => accumulator + currentValue.price, 0);
+
     return (
         <section>
             <SectionTitle paragraphTitle="My Cart" headingTitle="WANNA ADD MORE?" />
@@ -33,7 +36,11 @@ const MyCart = () => {
 
                 <div className="p-10 bg-white">
 
-                    <h2>Total items: </h2>
+                    <div className="flex justify-around mb-5">
+                        <h2 className="text-3xl">Total Orders: {cart.length} </h2>
+                        <h2 className="text-3xl">Total Price:  {totalPrice.toFixed(2)} </h2>
+                        <button className="bg-slate-400 py-2 px-4 rounded text-white font-bold">Pay</button>
+                    </div>
 
                     <div>
                         <div className="overflow-x-auto">

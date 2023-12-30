@@ -37,12 +37,11 @@ const ManageBokings = () => {
                                     </td>
                                     <td>
 
-                                        <select className="">
-                                            <option disabled selected>Pending</option>
-                                            <option>Approved</option>
-                                            <option>Delevery Process</option>
-                                            <option>Hand Over</option>
-                                            <option>Complete</option>
+                                        <select defaultValue="Pending" className="">
+                                            <option defaultValue="Pending" disabled >Pending</option>
+                                            <option defaultValue="Approved">Approved</option>
+                                            <option defaultValue="Delevery Process">Delevery Process</option>
+                                            <option defaultValue="Complete">Complete</option>
                                         </select>
 
                                     </td>

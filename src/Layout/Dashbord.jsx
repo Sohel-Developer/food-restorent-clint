@@ -4,7 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 
 const Dashbord = () => {
 
-    const isAdmin = false;
+    const isAdmin = true;
 
 
     return (
@@ -27,22 +27,22 @@ const Dashbord = () => {
 
                         {
                             isAdmin ? <>
-                                <Link className="text-xl font-semibold  " to="/dashbord/additem"><li><a> <FaUtensils /> Add Item</a></li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/manageitems"><li><a> <FaSyncAlt />  Manage Items</a></li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/updateitem"><li><a><FaExchangeAlt /> Update Items</a></li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/allusers"><li><a> <FaUsers />  All Users</a></li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/bookings"><li><a> <FaUsers />  Manage Bokings</a></li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/additem"><li> <FaUtensils /> Add Item</li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/manageitems"><li> <FaSyncAlt />  Manage Items</li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/updateitem"><li><FaExchangeAlt /> Update Items</li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/allusers"><li> <FaUsers />  All Users</li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/bookings"><li> <FaUsers />  Manage Bokings</li></Link>
 
                             </> : <>
 
                                 {/* Users */}
 
-                                <Link className="text-xl font-semibold  " to="/dashbord/user"><li><a> <FaHome /> User Home</a></li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/reservation"><li><a> <FaCalendarAlt />  Reservation</a></li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/paymenthistory"><li><a> <FaWallet />  Payment History</a></li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/cart"><li><a> <FaShoppingCart />  My Cart</a></li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/review"><li><a> <TbStarsFilled /> Add Review</a></li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/booking"><li><a> <FaUsers />  My Bokings</a></li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/user"><li> <FaHome /> User Home</li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/reservation"><li> <FaCalendarAlt />  Reservation</li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/paymenthistory"><li> <FaWallet />  Payment History</li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/cart"><li> <FaShoppingCart />  My Cart</li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/review"><li> <TbStarsFilled /> Add Review</li></Link>
+                                <Link className="text-xl font-semibold  " to="/dashbord/booking"><li> <FaUsers />  My Bokings</li></Link>
 
                             </>
                         }
@@ -54,10 +54,10 @@ const Dashbord = () => {
 
                         <div className="divider"></div>
 
-                        <Link className="text-xl font-semibold  " to="/"><li><a> <FaHome />  Home</a></li></Link>
-                        <Link className="text-xl font-semibold  " to="/menu"><li><a> <FaUtensils />  Menu </a></li></Link>
-                        <Link className="text-xl font-semibold  " to="/shop"><li><a> <FaShoppingBag />  Shop</a></li></Link>
-                        <Link className="text-xl font-semibold  " to="/contact"><li><a> <FaRegEnvelope />  Contact</a></li></Link>
+                        <Link className="text-xl font-semibold  " to="/"><li> <FaHome />  Home</li></Link>
+                        <Link className="text-xl font-semibold  " to="/menu"><li> <FaUtensils />  Menu </li></Link>
+                        <Link className="text-xl font-semibold  " to="/shop"><li> <FaShoppingBag />  Shop</li></Link>
+                        <Link className="text-xl font-semibold  " to="/contact"><li> <FaRegEnvelope />  Contact</li></Link>
 
 
                     </ul>

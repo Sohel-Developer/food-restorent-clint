@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useCart from "../../Hooks/useCart";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
 
@@ -32,9 +33,17 @@ const Navbar = () => {
 
 
     const handleLogOut = () => {
+        toast.success('Have a good day!')
         logOut()
-            .then(() => { })
-            .catch(error => console.log(error));
+            .then((e) => {
+                console.log(e);
+
+            })
+            .catch(() => {
+
+                // An error happened.
+            });
+
     }
 
     const navItem = <>
