@@ -13,7 +13,7 @@ const FoodCard = ({ food }) => {
 
     const { name, price, recipe, image, _id } = food;
 
-    const handleCartItem = (item) => {
+    const handleCartItem = () => {
 
         if (user) {
 
@@ -42,13 +42,6 @@ const FoodCard = ({ food }) => {
             alert("Pleace Login Now")
             navigate('/login', { state: { from: location } })
         }
-
-
-
-
-
-
-        console.log(item);
     }
 
 
@@ -66,11 +59,8 @@ const FoodCard = ({ food }) => {
                 <div className="card-actions ">
 
                     {
-                        btnSwap ? <button className="btn btn-outline w-full mt-4  border-none hover:bg-black text-[#BB8506] border-b-4  bg-[#E8E8E8]">Already Buy Now</button> : <button onClick={() => handleCartItem(food)} className="btn btn-outline w-full mt-4  border-none hover:bg-black text-[#BB8506] border-b-4  bg-[#E8E8E8]">Buy Now</button>
+                        btnSwap ? <button className="btn btn-outline w-full mt-4  border-none hover:bg-black text-[#BB8506] border-b-4  bg-[#E8E8E8]">Already Buy Now</button> : <button onClick={() => handleCartItem()} className="btn btn-outline w-full mt-4  border-none hover:bg-black text-[#BB8506] border-b-4  bg-[#E8E8E8]">Buy Now</button>
                     }
-
-
-
 
                 </div>
 

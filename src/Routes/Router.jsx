@@ -18,6 +18,7 @@ import PaymentHistory from "../Pages/Dashbord/Users/PaymentHistory";
 import MyCart from "../Pages/Dashbord/Users/MyCart";
 import Review from "../Pages/Dashbord/Users/Review";
 import MyBokings from "../Pages/Dashbord/Users/MyBokings";
+import Payment from "../Pages/Dashbord/Users/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -76,6 +77,10 @@ export const router = createBrowserRouter([
             {
                 path: 'reservation',
                 element: <Reservation />
+            },
+            {
+                path: 'payment',
+                element: <Payment />
             },
             {
                 path: 'paymenthistory',

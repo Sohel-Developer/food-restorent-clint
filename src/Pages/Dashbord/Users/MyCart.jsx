@@ -1,6 +1,9 @@
 import { FaTrashAlt } from "react-icons/fa";
 import SectionTitle from "../../../Component/SectionTitle/SectionTitle";
 import useCart from "../../../Hooks/useCart";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 
 const MyCart = () => {
@@ -11,16 +14,31 @@ const MyCart = () => {
 
     const handleDelete = item => {
 
-        fetch(`http://localhost:5000/carts/${item._id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    refetch();
+        Swal.fire({
+            title: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
 
-                }
-            })
+                fetch(`http://localhost:5000/carts/${item._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+
+                        }
+                    })
+
+                toast.success("Your food item has been deleted.")
+            }
+        });
+
 
     }
 
@@ -39,7 +57,7 @@ const MyCart = () => {
                     <div className="flex justify-around mb-5">
                         <h2 className="text-3xl">Total Orders: {cart.length} </h2>
                         <h2 className="text-3xl">Total Price:  {totalPrice.toFixed(2)} </h2>
-                        <button className="bg-slate-400 py-2 px-4 rounded text-white font-bold">Pay</button>
+                        <Link to={'/dashbord/payment'}><button className="bg-slate-400 py-2 px-4 rounded text-white font-bold">Pay</button></Link>
                     </div>
 
                     <div>

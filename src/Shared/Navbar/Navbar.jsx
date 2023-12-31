@@ -108,14 +108,17 @@ const Navbar = () => {
                             </label>
 
                         </Link>
-                        <div className="dropdown dropdown-end">
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        {
+                            user && <div className="m-2">
+                                {/* <label className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                </div>
-                            </label>
 
-                        </div>
+                                </div>
+                            </label> */}
+                                <Link to={'/'}><img className="avatar btn-circle cursor-pointer" src={user?.photoURL} /></Link>
+
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
