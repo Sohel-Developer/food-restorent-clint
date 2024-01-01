@@ -35,8 +35,8 @@ const Navbar = () => {
     const handleLogOut = () => {
         toast.success('Have a good day!')
         logOut()
-            .then((e) => {
-                console.log(e);
+            .then(() => {
+
 
             })
             .catch(() => {

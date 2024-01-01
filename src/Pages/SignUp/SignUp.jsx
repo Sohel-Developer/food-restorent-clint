@@ -1,14 +1,45 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
 import { FaArrowLeft, FaTelegramPlane } from "react-icons/fa";
 import loginImg from '../../assets/others/authentication2.png'
+import useAuth from "../../Hooks/useAuth";
+import { getAuth, updateProfile } from "firebase/auth";
 
 
 const SignUp = () => {
+    const auth = getAuth();
+    const { createUser } = useAuth()
+    const navigate = useNavigate()
+
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
-    console.log(errors);
+    const onSubmit = data => {
+
+        const { Name, Image, Email, Password } = data
+
+        console.log(Name, Image, Email, Password);
+
+        createUser(Email, Password)
+            .then(Result => {
+                console.log(Result.user);
+                updateProfile(auth.currentUser, {
+                    displayName: Name, photoURL: Image
+                }).then(() => {
+                    // Profile updated!
+                    navigate('/')
+                    // ...
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
+                });
+
+            })
+            .then(err => { console.log(err) })
+
+        console.log(data)
+    };
+
+
 
 
 
@@ -16,7 +47,7 @@ const SignUp = () => {
     return (
         <div id='login' className="h-screen" >
             <div className='container'>
-                <div className='px-20 md:py-40 md:flex justify-between'>
+                <div className='px-20 md:pt-20 md:flex justify-between'>
                     <div>
                         <Link to="/"><p className='text-xl font-semibold flex items-center gap-2 cursor-pointer'> <FaArrowLeft /> Back To Home</p></Link>
                         <img src={loginImg} alt="" />
@@ -25,14 +56,17 @@ const SignUp = () => {
                     <div className='md:w-1/2'>
                         <form className=" space-y-4 md:space-y-10" onSubmit={handleSubmit(onSubmit)}>
 
-                            <input type="text" placeholder="Your Name" {...register("name", { required: true, maxLength: 80 })} className="input input-bordered w-full" />
+                            <input type="text" placeholder="Your Name" {...register("Name", { required: true, maxLength: 80 })} className="input input-bordered w-full" />
                             <input type="email" className="input input-bordered w-full" placeholder="Email" {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
+                            <input type="password" className="input input-bordered w-full" placeholder="Password" {...register("Password")} />
+                            <input type="text" className="input input-bordered w-full" placeholder="Your-Image-Link" {...register("Image")} />
 
-                            <input type="text" className="input input-bordered w-full" placeholder="Reload Captcha" />
-                            <input type="text" className="input input-bordered w-full" placeholder="Type Captcha" {...register("Captcha")} />
+                            {/* Hide Captucha TODO: Show In Captcha */}
+                            {/* <input type="text" className="input input-bordered w-full" placeholder="Reload Captcha" />
+                            <input type="text" className="input input-bordered w-full" placeholder="Type Captcha" {...register("Captcha")} /> */}
 
-                            <div className="flex  cursor-pointer bg-gray-700 py-4 px-12 rounded-lg justify-center items-center gap-2">
-                                <input className=" text-white font-semibold" type="submit" value="Login" /> <FaTelegramPlane className="text-white" />
+                            <div className="flex  bg-gray-700 py-4 px-12 rounded-lg justify-center items-center gap-2">
+                                <input className=" text-white font-semibold cursor-pointer" type="submit" value="SignUp" /> <FaTelegramPlane className="text-white" />
                             </div>
                         </form>
 
