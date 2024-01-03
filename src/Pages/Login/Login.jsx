@@ -7,6 +7,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -22,7 +23,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                alert("Successfuly Login")
+                toast.success("Successfuly Login")
             })
 
         navigate(from, { replace: true });

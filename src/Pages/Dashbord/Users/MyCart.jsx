@@ -57,7 +57,7 @@ const MyCart = () => {
                     <div className="flex justify-around mb-5">
                         <h2 className="text-3xl">Total Orders: {cart.length} </h2>
                         <h2 className="text-3xl">Total Price:  {totalPrice.toFixed(2)} </h2>
-                        <Link to={'/dashbord/payment'}><button className="bg-slate-400 py-2 px-4 rounded text-white font-bold">Pay</button></Link>
+                        <Link to={'/dashbord/checkout'}><button className="bg-slate-400 py-2 px-4 rounded text-white font-bold">CheckOut</button></Link>
                     </div>
 
                     <div>
