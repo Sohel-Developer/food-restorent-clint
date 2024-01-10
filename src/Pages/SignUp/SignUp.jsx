@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
 import { FaArrowLeft, FaTelegramPlane } from "react-icons/fa";
@@ -11,13 +11,17 @@ const SignUp = () => {
     const auth = getAuth();
     const { createUser } = useAuth()
     const navigate = useNavigate()
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
 
         const { Name, Image, Email, Password } = data
 
-        console.log(Name, Image, Email, Password);
+        // DB Save User
+        const saveUser = { Name, Email };
 
         createUser(Email, Password)
             .then(Result => {
@@ -26,7 +30,19 @@ const SignUp = () => {
                     displayName: Name, photoURL: Image
                 }).then(() => {
                     // Profile updated!
-                    navigate('/')
+
+                    fetch('http://localhost:5000/users', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(saveUser)
+                    })
+                        .then(res => res.json())
+                        .then(() => {
+                            navigate(from, { replace: true });
+                        })
+                    // navigate('/')
                     // ...
                 }).catch((error) => {
                     // An error occurred
