@@ -1,4 +1,4 @@
-import { FaCalendarAlt, FaExchangeAlt, FaHome, FaRegEnvelope, FaShoppingBag, FaShoppingCart, FaSyncAlt, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
+import { FaAd, FaCalendarAlt, FaExchangeAlt, FaHome, FaRegEnvelope, FaShoppingBag, FaShoppingCart, FaSyncAlt, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
 import { TbStarsFilled } from "react-icons/tb";
 import { Link, Outlet } from "react-router-dom";
 
@@ -22,27 +22,27 @@ const Dashbord = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                    <ul className="menu p-4 space-y-5 w-80 h-full bg-base-200 text-base-content">
                         {/* Admin */}
 
                         {
                             isAdmin ? <>
-                                <Link className="text-xl font-semibold  " to="/dashbord/additem"><li> <FaUtensils /> Add Item</li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/manageitems"><li> <FaSyncAlt />  Manage Items</li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/updateitem"><li><FaExchangeAlt /> Update Items</li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/allusers"><li> <FaUsers />  All Users</li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/bookings"><li> <FaUsers />  Manage Bokings</li></Link>
+                                <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/additem"> <FaUtensils /> Add Item</Link>
+                                <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/manageitems"> <FaSyncAlt />  Manage Items</Link>
+                                <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/updateitem"><FaExchangeAlt /> Update Items</Link>
+                                <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/allusers"> <FaUsers />  All Users</Link>
+                                <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/bookings"> <FaUsers />  Manage Bokings</Link>
 
                             </> : <>
 
                                 {/* Users */}
 
-                                <Link className="text-xl font-semibold  " to="/dashbord/user"><li> <FaHome /> User Home</li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/reservation"><li> <FaCalendarAlt />  Reservation</li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/paymenthistory"><li> <FaWallet />  Payment History</li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/cart"><li> <FaShoppingCart />  My Cart</li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/review"><li> <TbStarsFilled /> Add Review</li></Link>
-                                <Link className="text-xl font-semibold  " to="/dashbord/booking"><li> <FaUsers />  My Bokings</li></Link>
+                                <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/user"> <FaHome /> User Home</Link>
+                                <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/reservation"> <FaCalendarAlt />  Reservation</Link>
+                                <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/paymenthistory"> <FaWallet />  Payment History</Link>
+                                <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/cart"> <FaShoppingCart />  My Cart</Link>
+                                <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/review"> <TbStarsFilled /> Add Review</Link>
+                                <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/booking"> <FaUsers />  My Bokings</Link>
 
                             </>
                         }
@@ -54,10 +54,10 @@ const Dashbord = () => {
 
                         <div className="divider"></div>
 
-                        <Link className="text-xl font-semibold  " to="/"><li> <FaHome />  Home</li></Link>
-                        <Link className="text-xl font-semibold  " to="/menu"><li> <FaUtensils />  Menu </li></Link>
-                        <Link className="text-xl font-semibold  " to="/shop"><li> <FaShoppingBag />  Shop</li></Link>
-                        <Link className="text-xl font-semibold  " to="/contact"><li> <FaRegEnvelope />  Contact</li></Link>
+                        <Link className="text-xl font-semibold flex items-center gap-3 " to="/"> <FaHome />  Home</Link>
+                        <Link className="text-xl font-semibold flex items-center gap-3 " to="/menu"> <FaUtensils />  Menu </Link>
+                        <Link className="text-xl font-semibold flex items-center gap-3 " to="/shop"> <FaShoppingBag />  Shop</Link>
+                        <Link className="text-xl font-semibold flex items-center gap-3 " to="/contact"> <FaRegEnvelope />  Contact</Link>
 
 
                     </ul>

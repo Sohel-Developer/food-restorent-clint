@@ -20,6 +20,7 @@ import Review from "../Pages/Dashbord/Users/Review";
 import MyBokings from "../Pages/Dashbord/Users/MyBokings";
 import Payment from "../Pages/Dashbord/Users/Payment";
 import CheckOut from "../Pages/Dashbord/Users/CheckOut";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -47,7 +48,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashbord',
-        element: <Dashbord />,
+        element: <PrivateRoute> <Dashbord /></PrivateRoute>,
         children: [
             {
                 path: 'additem',
