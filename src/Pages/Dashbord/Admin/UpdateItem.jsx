@@ -6,20 +6,9 @@ import { useQuery } from "@tanstack/react-query";
 
 
 const UpdateItem = () => {
-
+    const [axiosSecure] = useAxiosSecure();
     const { id } = useParams()
 
-    // useAxiosSecure.(`/foods/${id}`)
-    //     .then(function () {
-    //         refetch()
-    //         toast.success("Your food item has been deleted.")
-    //     })
-    //     .catch(function (error) {
-    //         console.log(error);
-    //     });
-
-
-    const [axiosSecure] = useAxiosSecure();
     const { refetch, data: food = [] } = useQuery({
         queryKey: ['foods'],
         queryFn: async () => {
@@ -28,6 +17,7 @@ const UpdateItem = () => {
 
         },
     })
+
 
 
     return (

@@ -1,12 +1,12 @@
 import FoodCard from "../../../Component/FoodCard/FoodCard";
 import SectionTitle from "../../../Component/SectionTitle/SectionTitle";
-import useMenu from "../../../Hooks/useMenu";
+import useFoodItem from "../../../Hooks/useFoodItem";
 
 
 
 const Recommend = () => {
-    const [menu] = useMenu()
-    const popular = menu.filter((item) => item.category === "popular")
+    const [foods] = useFoodItem()
+    const popular = foods.filter((item) => item.category === "popular")
 
 
     return (

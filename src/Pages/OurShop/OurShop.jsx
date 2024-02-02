@@ -2,9 +2,9 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Cover from "../../Component/Cover/Cover";
 import shopCover from "../../assets/shop/banner2.jpg"
-import useMenu from '../../Hooks/useMenu';
 import FoodCard from '../../Component/FoodCard/FoodCard';
 import { useState } from 'react';
+import useFoodItem from '../../Hooks/useFoodItem';
 
 
 const ITEMS_PER_PAGE = 6;
@@ -14,12 +14,12 @@ const OurShop = () => {
 
 
 
-    const [menu] = useMenu()
-    const drinks = menu.filter((food) => food.category === "drinks")
-    const dessert = menu.filter((food) => food.category === "dessert")
-    const salad = menu.filter((food) => food.category === "salad")
-    const pizza = menu.filter((food) => food.category === "pizza")
-    const soups = menu.filter((food) => food.category === "soup")
+    const [foods] = useFoodItem()
+    const drinks = foods.filter((food) => food.category === "drinks")
+    const dessert = foods.filter((food) => food.category === "dessert")
+    const salad = foods.filter((food) => food.category === "salad")
+    const pizza = foods.filter((food) => food.category === "pizza")
+    const soups = foods.filter((food) => food.category === "soup")
 
 
 

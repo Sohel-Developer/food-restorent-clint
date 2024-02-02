@@ -19,9 +19,7 @@ const FoodCard = ({ food }) => {
 
     const handleCartItem = () => {
 
-        const isCart = carts.find((item => item.foodId === _id))
-        console.log("isCard" + isCart);
-        console.log(carts);
+
 
 
         if (user) {

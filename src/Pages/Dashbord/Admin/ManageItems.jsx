@@ -9,9 +9,10 @@ import { Link } from "react-router-dom";
 
 const ManageItems = () => {
     const [foods, refetch] = useFoodItem()
+    const [axiosSecure] = useAxiosSecure();
 
 
-    const handleDelete = item => {
+    const handleDelete = itemId => {
 
         Swal.fire({
             title: "Are you sure?",
@@ -36,7 +37,7 @@ const ManageItems = () => {
 
                 // toast.success("Your food item has been deleted.")
 
-                useAxiosSecure.delete('/foods', item)
+                axiosSecure.delete(`/food/${itemId}`)
                     .then(function () {
                         refetch()
                         toast.success("Your food item has been deleted.")
