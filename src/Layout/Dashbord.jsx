@@ -29,7 +29,6 @@ const Dashbord = () => {
                             isAdmin ? <>
                                 <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/additem"> <FaUtensils /> Add Item</Link>
                                 <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/manageitems"> <FaSyncAlt />  Manage Items</Link>
-                                <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/updateitem"><FaExchangeAlt /> Update Items</Link>
                                 <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/allusers"> <FaUsers />  All Users</Link>
                                 <Link className="text-xl font-semibold flex items-center gap-3 " to="/dashbord/bookings"> <FaUsers />  Manage Bokings</Link>
 

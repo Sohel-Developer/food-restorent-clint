@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
                 element: <ManageItems />
             },
             {
-                path: 'updateitem',
+                path: 'updateitem/:id',
                 element: <UpdateItem />
             },
             {

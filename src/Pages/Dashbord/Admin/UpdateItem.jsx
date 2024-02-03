@@ -1,8 +1,35 @@
 import { FaUtensils } from "react-icons/fa";
 import SectionTitle from "../../../Component/SectionTitle/SectionTitle";
+import { useParams } from "react-router-dom";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 
 const UpdateItem = () => {
+
+    const { id } = useParams()
+
+    // useAxiosSecure.(`/foods/${id}`)
+    //     .then(function () {
+    //         refetch()
+    //         toast.success("Your food item has been deleted.")
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
+
+
+    const [axiosSecure] = useAxiosSecure();
+    const { refetch, data: food = [] } = useQuery({
+        queryKey: ['foods'],
+        queryFn: async () => {
+            const res = await axiosSecure(`/food/${id}`)
+            return res.data;
+
+        },
+    })
+
+
     return (
         <section>
             <div>
@@ -13,7 +40,7 @@ const UpdateItem = () => {
                         <label className="label">
                             <span className="label-text">Recipe Name</span>
                         </label>
-                        <input type="text" placeholder="Recipe Name" className="input input-bordered" />
+                        <input type="text" defaultValue={food.name} placeholder="Recipe Name" className="input input-bordered" />
 
                     </div>
                     <div className="flex w-full gap-10">
@@ -21,7 +48,7 @@ const UpdateItem = () => {
                             <label className="label">
                                 <span className="label-text">Category</span>
                             </label>
-                            <select defaultValue="Chose Category" className="select select-bordered">
+                            <select defaultValue={food.category} className="select select-bordered">
                                 <option disabled >Chose Category</option>
                                 <option>salad</option>
                                 <option>pizza</option>
@@ -34,7 +61,7 @@ const UpdateItem = () => {
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input type="number" placeholder="Price" className="input input-bordered" />
+                            <input defaultValue={food.price} type="number" placeholder="Price" className="input input-bordered" />
 
                         </div>
 
@@ -44,7 +71,7 @@ const UpdateItem = () => {
                         <label className="label">
                             <span className="label-text">Recipe Details</span>
                         </label>
-                        <textarea className="textarea textarea-bordered w-full" placeholder="Recipe Details" >
+                        <textarea defaultValue={food.recipe} className="textarea textarea-bordered w-full" placeholder="Recipe Details" >
 
                         </textarea>
 

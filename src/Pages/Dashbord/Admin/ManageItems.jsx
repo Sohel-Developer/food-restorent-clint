@@ -4,11 +4,11 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import useFoodItem from "../../../Hooks/useFoodItem";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 
 const ManageItems = () => {
     const [foods, refetch] = useFoodItem()
-    console.log("foods" + [foods]);
 
 
     const handleDelete = item => {
@@ -100,7 +100,7 @@ const ManageItems = () => {
                                         </td>
                                         <td>${item.price}</td>
                                         <th>
-                                            <button className="btn btn-ghost "><FaRegEdit className="text-xl" /></button>
+                                            <Link to={`/dashbord/updateitem/${item._id}`}><button className="btn btn-ghost "><FaRegEdit className="text-xl" /></button></Link>
                                             <button onClick={() => handleDelete(item._id)} className="btn btn-ghost "><FaTrashAlt className="text-xl" /></button>
                                         </th>
                                     </tr>)
