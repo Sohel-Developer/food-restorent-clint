@@ -1,44 +1,56 @@
 import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
 import SectionTitle from "../../../Component/SectionTitle/SectionTitle";
-import useMenu from "../../../Hooks/useMenu";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import useFoodItem from "../../../Hooks/useFoodItem";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
 const ManageItems = () => {
     const [foods, refetch] = useFoodItem()
+    console.log("foods" + [foods]);
 
 
-    // const handleDelete = item => {
+    const handleDelete = item => {
 
-    //     Swal.fire({
-    //         title: "Are you sure?",
-    //         icon: "warning",
-    //         showCancelButton: true,
-    //         confirmButtonColor: "#3085d6",
-    //         cancelButtonColor: "#d33",
-    //         confirmButtonText: "Yes, delete it!"
-    //     }).then((result) => {
-    //         if (result.isConfirmed) {
+        Swal.fire({
+            title: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
 
-    //             fetch(`http://localhost:5000/carts/${item._id}`, {
-    //                 method: 'DELETE'
-    //             })
-    //                 .then(res => res.json())
-    //                 .then(data => {
-    //                     if (data.deletedCount > 0) {
-    //                         // refetch();
+                // fetch(`http://localhost:5000/carts/${item._id}`, {
+                //     method: 'DELETE'
+                // })
+                //     .then(res => res.json())
+                //     .then(data => {
+                //         if (data.deletedCount > 0) {
+                //             // refetch();
 
-    //                     }
-    //                 })
+                //         }
+                //     })
 
-    //             toast.success("Your food item has been deleted.")
-    //         }
-    //     });
+                // toast.success("Your food item has been deleted.")
+
+                useAxiosSecure.delete('/foods', item)
+                    .then(function () {
+                        refetch()
+                        toast.success("Your food item has been deleted.")
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
 
 
-    // }
+            }
+        });
+
+
+    }
 
 
 
@@ -89,7 +101,7 @@ const ManageItems = () => {
                                         <td>${item.price}</td>
                                         <th>
                                             <button className="btn btn-ghost "><FaRegEdit className="text-xl" /></button>
-                                            <button className="btn btn-ghost "><FaTrashAlt className="text-xl" /></button>
+                                            <button onClick={() => handleDelete(item._id)} className="btn btn-ghost "><FaTrashAlt className="text-xl" /></button>
                                         </th>
                                     </tr>)
                                 }

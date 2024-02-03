@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
-import axios from "axios";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 
@@ -15,8 +14,6 @@ const FoodCard = ({ food }) => {
     const { user } = useAuth()
     const [carts, refetch] = useCart()
     const [axiosSecure] = useAxiosSecure();
-
-    const [btnSwap, setBtnSwap] = useState(false)
 
     const { name, price, recipe, image, _id } = food;
 
@@ -29,7 +26,6 @@ const FoodCard = ({ food }) => {
 
         if (user) {
 
-            setBtnSwap(!btnSwap)
 
             const cartItem = { foodId: _id, name, image, price, email: user.email, status: "buy" }
             // fetch('http://localhost:5000/carts', {
