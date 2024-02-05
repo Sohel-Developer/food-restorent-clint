@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -15,8 +16,6 @@ const useMenu = () => {
                 setLoading(false)
             })
     }, [])
-
-
 
     return [menu, loading]
 };
