@@ -4,10 +4,11 @@ import useCart from "../../../Hooks/useCart";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
 const MyCart = () => {
-
+    const [axiosSecure] = useAxiosSecure()
     const [cart, refetch] = useCart()
     refetch()
 
@@ -24,18 +25,26 @@ const MyCart = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/carts/${item._id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount > 0) {
-                            refetch();
+                // fetch(`http://localhost:5000/carts/${item._id}`, {
+                //     method: 'DELETE'
+                // })
+                //     .then(res => res.json())
+                //     .then(data => {
+                //         if (data.deletedCount > 0) {
+                //             refetch();
 
-                        }
+                //         }
+                //     })
+
+                axiosSecure.delete(`/carts/${item._id}`)
+                    .then(function () {
+                        refetch()
+                        toast.success("Your food item has been deleted.")
                     })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
 
-                toast.success("Your food item has been deleted.")
             }
         });
 

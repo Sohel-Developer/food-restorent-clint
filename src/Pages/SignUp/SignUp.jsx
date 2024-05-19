@@ -5,6 +5,8 @@ import { FaArrowLeft, FaTelegramPlane } from "react-icons/fa";
 import loginImg from '../../assets/others/authentication2.png'
 import useAuth from "../../Hooks/useAuth";
 import { getAuth, updateProfile } from "firebase/auth";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 
 const SignUp = () => {
@@ -12,11 +14,13 @@ const SignUp = () => {
     const { createUser } = useAuth()
     const navigate = useNavigate()
     const location = useLocation();
+    const [axiosSecure] = useAxiosSecure()
 
     const from = location.state?.from?.pathname || "/";
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
+
 
         const { Name, Image, Email, Password } = data
 
@@ -31,19 +35,30 @@ const SignUp = () => {
                 }).then(() => {
                     // Profile updated!
 
-                    fetch('http://localhost:5000/users', {
-                        method: 'POST',
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify(saveUser)
-                    })
-                        .then(res => res.json())
-                        .then(() => {
+                    // fetch('http://localhost:5000/users', {
+                    //     method: 'POST',
+                    //     headers: {
+                    //         'content-type': 'application/json'
+                    //     },
+                    //     body: JSON.stringify(saveUser)
+                    // })
+                    //     .then(res => res.json())
+                    //     .then(() => {
+                    //         navigate(from, { replace: true });
+                    //     })
+
+
+
+                    axiosSecure.post('/users', saveUser)
+                        .then(function (res) {
+                            console.log(res);
+                            toast.success("Welcome Our Shop")
                             navigate(from, { replace: true });
                         })
-                    // navigate('/')
-                    // ...
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+
                 }).catch((error) => {
                     // An error occurred
                     // ...

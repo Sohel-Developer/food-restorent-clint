@@ -48,9 +48,9 @@ const OurShop = () => {
             <Cover image={shopCover} heading="OUR SHOP" subHeading="Would you like to try a dish?" />
 
             <div className='container'>
-                <section >
+                <section className='' >
                     <Tabs>
-                        <TabList className='flex justify-center uppercase text-2xl '>
+                        <TabList className='flex justify-center uppercase flex-col text-center lg:flex-row text-2xl '>
                             <Tab>salad</Tab>
                             <Tab>pizza</Tab>
                             <Tab>Soups</Tab>
@@ -58,7 +58,7 @@ const OurShop = () => {
                             <Tab>drinks</Tab>
                         </TabList>
                         <TabPanel>
-                            <div className='grid md:grid-cols-3 gap-10 my-10'>
+                            <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-10 my-10'>
                                 {
                                     saladItem.map((food) => <FoodCard key={food._id} food={food} />)
                                 }

@@ -27,8 +27,8 @@ const Reservation = () => {
                             <label className="label">
                                 <span className="label-text">Guest*</span>
                             </label>
-                            <select className="select select-bordered">
-                                <option disabled selected>Selected  Persone</option>
+                            <select defaultValue='Selected  Persone' className="select select-bordered">
+                                <option  >Selected  Persone</option>
                                 <option>1 Person</option>
                                 <option>2 Person</option>
                                 <option>3 Person</option>
@@ -41,21 +41,21 @@ const Reservation = () => {
                             <label className="label">
                                 <span className="label-text">Name*</span>
                             </label>
-                            <input type="text" placeholder="password" className="input input-bordered" />
+                            <input type="text" placeholder="Name" className="input input-bordered" />
 
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Phone*</span>
                             </label>
-                            <input type="text" placeholder="password" className="input input-bordered" />
+                            <input type="text" placeholder="Phone" className="input input-bordered" />
 
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Email*</span>
                             </label>
-                            <input type="email" placeholder="password" className="input input-bordered" />
+                            <input type="email" placeholder="Email" className="input input-bordered" />
 
                         </div>
 

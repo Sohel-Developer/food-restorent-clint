@@ -7,6 +7,7 @@ import useFoodItem from "../../../Hooks/useFoodItem";
 
 const AddItem = () => {
     const [, refetch] = useFoodItem()
+    const [axiosSecure] = useAxiosSecure()
 
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
@@ -15,31 +16,30 @@ const AddItem = () => {
 
         const savedItem = { name, price, recipe, category }
 
-        fetch('http://localhost:5000/food', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(savedItem)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
-                    refetch(); // refetch cart to update the number of items in the cart
+        // fetch('http://localhost:5000/food', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(savedItem)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.insertedId) {
+        //             refetch(); // refetch cart to update the number of items in the cart
 
-                    alert("Added your food")
-                }
-            })
-
-
-        // useAxiosSecure.post('/food', savedItem)
-        //     .then(function (res) {
-        //         console.log(res);
-        //         toast.success("Your Item Added")
+        //             alert("Added your food")
+        //         }
         //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
+
+
+        axiosSecure.post('/food', savedItem)
+            .then(function () {
+                toast.success("Your Item Added")
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
     }
 
@@ -47,7 +47,7 @@ const AddItem = () => {
 
     // const foodItemAdded= ()=>{
 
-    //     useAxiosSecure.post('/carts', cartItem)
+    //     axiosSecure.post('/food', savedItem)
     //     .then(function () {
     //         toast.success("Your Item Added")
     //     })

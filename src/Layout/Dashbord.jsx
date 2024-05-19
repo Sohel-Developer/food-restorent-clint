@@ -4,7 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 
 const Dashbord = () => {
 
-    const isAdmin = true;
+    const isAdmin = false;
 
 
     return (

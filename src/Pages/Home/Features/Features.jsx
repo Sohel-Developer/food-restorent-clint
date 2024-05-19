@@ -14,7 +14,7 @@ import image5 from '../../../assets/home/slide5.jpg'
 
 const Features = () => {
     return (
-        <section className="max-w-7xl mx-auto">
+        <section className="max-w-7xl mx-auto hidden lg:block">
             <SectionTitle paragraphTitle="Order Now 9:00AM To 10:00PM " headingTitle="Our Category" />
             <>
                 <Swiper
@@ -24,7 +24,7 @@ const Features = () => {
                         clickable: true,
                     }}
                     modules={[Pagination]}
-                    className="mySwiper my-20"
+                    className="mySwiper grid sm:grid-cols-2 my-20"
                 >
                     <SwiperSlide>
                         <div className="relative flex justify-center ">
