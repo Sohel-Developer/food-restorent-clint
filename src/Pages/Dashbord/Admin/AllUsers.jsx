@@ -1,8 +1,13 @@
 import { FaTrashAlt, FaUsers } from "react-icons/fa";
 import SectionTitle from "../../../Component/SectionTitle/SectionTitle";
+import useUsersData from "../../../Hooks/useUsersData";
 
 
 const AllUsers = () => {
+
+    const [users, refetch] = useUsersData()
+    // console.log(users);
+
     return (
         <div className="m-10">
             <SectionTitle paragraphTitle="Check Items" headingTitle="MANAGE ALL ITEMS" />
@@ -27,23 +32,47 @@ const AllUsers = () => {
                                 </tr>
                             </thead>
                             <tbody>
+
+
+
+                                {
+                                    users.map((user, index) => <tr key={user._id} className="text-center">
+                                        <th>
+                                            {index + 1}
+                                        </th>
+                                        <td>
+                                            {user.Name}
+                                        </td>
+                                        <td>
+                                            {user.Email}
+                                        </td>
+                                        <td><button className="btn btn-ghost "><FaUsers className="text-xl" /></button></td>
+                                        <th>
+
+                                            <button className="btn btn-ghost "><FaTrashAlt className="text-xl" /></button>
+                                        </th>
+                                    </tr>)
+                                }
+
+
+
+
                                 {/* row 1 */}
-                                <tr className="text-center">
+                                {/* <tr className="text-center">
                                     <th>
-                                        1
+                                        {users.length + 1}
                                     </th>
                                     <td>
-                                        name
+                                        {users.Name}
                                     </td>
                                     <td>
-                                        salad
+                                        {users.Email}
                                     </td>
                                     <td><button className="btn btn-ghost "><FaUsers className="text-xl" /></button></td>
                                     <th>
-
                                         <button className="btn btn-ghost "><FaTrashAlt className="text-xl" /></button>
                                     </th>
-                                </tr>
+                                </tr> */}
 
                             </tbody>
 
