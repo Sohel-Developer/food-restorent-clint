@@ -19,13 +19,21 @@ const UpdateItem = () => {
     })
 
 
+    const updateFood = (e) => {
+        e.preventDefault();
+
+        console.log(e);
+
+    }
+
+
 
     return (
         <section>
             <div>
                 <SectionTitle paragraphTitle="Right Information Please" headingTitle="Update Item" />
 
-                <form className="p-10 space-y-4 bg-gray-100 m-10 rounded-lg">
+                <form onSubmit={updateFood} className="p-10 space-y-4 bg-gray-100 m-10 rounded-lg">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Recipe Name</span>

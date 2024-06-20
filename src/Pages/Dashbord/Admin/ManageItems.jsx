@@ -13,7 +13,6 @@ const ManageItems = () => {
 
 
     const handleDelete = itemId => {
-
         Swal.fire({
             title: "Are you sure?",
             icon: "warning",
@@ -23,20 +22,6 @@ const ManageItems = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-
-                // fetch(`http://localhost:5000/carts/${item._id}`, {
-                //     method: 'DELETE'
-                // })
-                //     .then(res => res.json())
-                //     .then(data => {
-                //         if (data.deletedCount > 0) {
-                //             // refetch();
-
-                //         }
-                //     })
-
-                // toast.success("Your food item has been deleted.")
-
                 axiosSecure.delete(`/food/${itemId}`)
                     .then(function () {
                         refetch()
@@ -49,8 +34,6 @@ const ManageItems = () => {
 
             }
         });
-
-
     }
 
 
