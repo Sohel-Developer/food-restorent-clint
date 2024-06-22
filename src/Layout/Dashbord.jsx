@@ -1,11 +1,17 @@
 import { FaAd, FaCalendarAlt, FaExchangeAlt, FaHome, FaRegEnvelope, FaShoppingBag, FaShoppingCart, FaSyncAlt, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
 import { TbStarsFilled } from "react-icons/tb";
 import { Link, Outlet } from "react-router-dom";
+import useAdmin from "../Hooks/useAdmin";
 
 const Dashbord = () => {
 
-    const isAdmin = true;
 
+    const [isAdmin, isAdminLoading] = useAdmin();
+    // const isAdmin = true
+
+    if (isAdminLoading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="container">

@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useCart from "../../Hooks/useCart";
 import toast from "react-hot-toast";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
 
+    const auth = useAuth()
+
+
     const { user, logOut } = useContext(AuthContext)
+    // console.log(user);
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "Light");
 
