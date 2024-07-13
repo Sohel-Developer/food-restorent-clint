@@ -22,7 +22,7 @@ const UpdateItem = () => {
     const updateFood = (e) => {
         e.preventDefault();
 
-        console.log(e);
+        console.log(e.target);
 
     }
 

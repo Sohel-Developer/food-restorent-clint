@@ -1,33 +1,57 @@
 
-import ReactRating from 'react-rating';
 import Rating from 'react-rating';
 import SectionTitle from "../../../Component/SectionTitle/SectionTitle";
 import { useState } from "react";
-// import { Rating } from 'react-simple-star-rating'
+import { useForm } from "react-hook-form"
+
 
 import { FaRegStar, FaStar } from "react-icons/fa6";
 import { FaTelegramPlane } from 'react-icons/fa';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import toast from 'react-hot-toast';
+import useAuth from '../../../Hooks/useAuth';
 
 
 const Review = () => {
+    const auth = useAuth() // User Gate Information
+    const [axiosSecure] = useAxiosSecure()
     const [ratingValue, setRatingValue] = useState(0);
+
+
 
     // Function to handle rating change
     const handleRatingChange = (value) => {
+
         console.log(value);
         setRatingValue(value);
     }
 
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm()
 
-    // const [rating, setRating] = useState(0)
 
-    // // Catch Rating value
-    // const handleRating = (rate) => {
-    //     setRating(rate)
+    const onSubmit = (data) => {
 
-    //     // other logic
-    // }
-    // console.log(rating);
+        const { recipe, suggestion, description } = data
+
+        const reviewData = { recipe, suggestion, description, ratingValue, name: auth?.user?.displayName }
+
+
+        axiosSecure.post('/review', reviewData)
+            .then(function () {
+                toast.success("Thank You For Valuable Review")
+                reset()
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }
+
 
     return (
         <section>
@@ -48,12 +72,12 @@ const Review = () => {
 
                 </div>
                 <div className="w-full">
-                    <form className="p-10 space-y-4 bg-gray-100 m-10 rounded-lg">
+                    <form onSubmit={handleSubmit(onSubmit)} className="p-10 space-y-4 bg-gray-100 m-10 rounded-lg">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Which recipe you liked most?</span>
                             </label>
-                            <input type="text" placeholder="Recipe you liked most" className="input input-bordered" />
+                            <input {...register("recipe")} type="text" placeholder="Recipe you liked most" className="input input-bordered" />
 
                         </div>
 
@@ -62,7 +86,7 @@ const Review = () => {
                             <label className="label">
                                 <span className="label-text">Do you have any suggestion for us?</span>
                             </label>
-                            <input type="text" placeholder="Sugggestion" className="input input-bordered" />
+                            <input {...register("suggestion")} type="text" placeholder="Sugggestion" className="input input-bordered" />
 
                         </div>
 
@@ -72,7 +96,7 @@ const Review = () => {
                             <label className="label">
                                 <span className="label-text">Kindly express your care in a short way.</span>
                             </label>
-                            <textarea className="textarea textarea-bordered w-full" placeholder="Review in detail" >
+                            <textarea {...register("description")} className="textarea textarea-bordered w-full" placeholder="Review in detail" >
 
                             </textarea>
 
@@ -81,7 +105,7 @@ const Review = () => {
 
 
                             <span className="cursor-pointer py-4 px-8 bg-gray-500 rounded-lg flex items-center gap-2">
-                                <input type="submit" className=" text-white text-xl font-semibold " value="Send Review" />
+                                <input type="submit" className=" cursor-pointer text-white text-xl font-semibold " value="Send Review" />
                                 <FaTelegramPlane className="text-white text-xl" />
                             </span>
                         </div>

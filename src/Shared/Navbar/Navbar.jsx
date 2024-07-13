@@ -8,6 +8,7 @@ import useAuth from "../../Hooks/useAuth";
 const Navbar = () => {
 
     const auth = useAuth()
+    console.log(auth?.user?.displayName);
 
 
     const { user, logOut } = useContext(AuthContext)

@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import Features from "../Features/Features";
 import Menu from "../Menu/Menu";
 import Recommend from "../Recommend/Recommend";
+import Review from "../Review/Review";
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             <About />
             <Menu />
             <Recommend />
+            <Review />
         </div>
     );
 };
